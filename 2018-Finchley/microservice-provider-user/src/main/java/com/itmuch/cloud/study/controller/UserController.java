@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
 import java.util.Optional;
 
 /**
@@ -22,5 +23,10 @@ public class UserController {
   @GetMapping("/{id}")
   public Optional<User> findById(@PathVariable Long id) {
     return this.userRepository.findById(id);
+  }
+  
+  @GetMapping("findAll")
+  public List<User> findAll() {
+	  return this.userRepository.findAll();
   }
 }
